@@ -58,5 +58,10 @@ while running:
         if event.type == pygame.QUIT():
             running == False
 
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_TAB:
+                active_box = (active_box + 1) % len(labels)
+
+
 pygame.quit()
 sys.exit()
