@@ -61,7 +61,13 @@ while running:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_TAB:
                 active_box = (active_box + 1) % len(labels)
-
+        elif event.key == pygame.K_RETURN:
+            if all(inputs) and inputs[5].lower() in ["a", "b", "c", "d"]:
+                main(inputs)
+                inputs = [""] * len(inputs)
+                active_box = 0
+        else:
+            print("Print all fields properly")
 
 pygame.quit()
 sys.exit()
