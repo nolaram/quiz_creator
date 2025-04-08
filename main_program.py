@@ -1,6 +1,5 @@
 # import all libraries needed for the program
 # main loop for asking questions
-
 def main():
     file_name = 'quiz_questions.txt'
 
@@ -33,8 +32,9 @@ def main():
             repeat = input("Do you want to add another question? (yes/no): ").strip().lower()
             if repeat != 'yes':
                 print("Thank you!")
+                # exit program
                 break
 
-# exit program
+# go back to main
 if __name__ == '__main__':
     main()
