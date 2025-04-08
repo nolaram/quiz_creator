@@ -81,5 +81,8 @@ while running:
         text_surface = font.render(f"{labels[input]}: {inputs[input]}", True, pygame.color("white"))
         screen.blit(text_surface, (box.x + 5, box.y + 5))
 
+    pygame.display.flip()
+    clock.tick(30)
+
 pygame.quit()
 sys.exit()
