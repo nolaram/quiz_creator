@@ -1,5 +1,6 @@
 # import all libraries needed for the program
 import pygame
+import sys
 
 pygame.init()
 
@@ -47,6 +48,5 @@ def main():
                 # exit program
                 break
 
-# go back to main
-if __name__ == '__main__':
-    main()
+pygame.quit()
+sys.exit()
