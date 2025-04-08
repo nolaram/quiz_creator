@@ -21,6 +21,7 @@ labels = [
     "Option D",
     "Correct Answer (a/b/c/d)"
 ]
+inputs = [""] * len(labels)
 
 # main loop for asking questions
 def main():
