@@ -25,8 +25,8 @@ inputs = [""] * len(labels)
 current_label = 0
 
 input_boxes = []
-for i, label in enumerate(labels):
-    rect = pygame.Rect(50, 50 + i * 60, 700, 40)
+for input, label in enumerate(labels):
+    rect = pygame.Rect(50, 50 + input * 60, 700, 40)
     input_boxes.append(rect)
 
 color_inactive = pygame.Color('lightskyblue3')
@@ -73,6 +73,13 @@ while running:
             inputs[active_box] = inputs[active_box][:-1]
         else:
             input[active_box] += event.unicode
+
+    # add input fields and labels
+    for input, box in enumerate(input_boxes):
+        color = color_active if input == active_box else color_inactive
+        pygame.draw.rect(screen, color, box, 2)
+        text_surface = font.render(f"{labels[input]}: {inputs[input]}", True, pygame.color("white"))
+        screen.blit(text_surface, (box.x + 5, box.y + 5))
 
 pygame.quit()
 sys.exit()
