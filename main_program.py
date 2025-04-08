@@ -18,6 +18,15 @@ def main():
             correct_answer = input("Enter the correct answer (a/b/c/d): ").lower()
             while correct_answer not in ['a', 'b', 'c', 'd']:
                 print("Invalid input! The answer must be (a/b/c/d)")
-                correct_answer = input("Enter the correct answer (a/b/c/d): ")
+                correct_answer = input("Enter the correct answer (a/b/c/d): ").lower()
+
+            # write the input in the file
+            file.write(f'Question: {question}\n')
+            file.write(f'a) {option_a}\n')
+            file.write(f'b) {option_b}\n')
+            file.write(f'c) {option_c}\n')
+            file.write(f'd) {option_d}\n')
+            file.write(f'Correct Answer: {correct_answer}\n')
+            file.wrote('-' * 40 + '\n')
 
 # exit program
