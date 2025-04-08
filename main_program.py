@@ -27,7 +27,7 @@ def main():
             file.write(f'c) {option_c}\n')
             file.write(f'd) {option_d}\n')
             file.write(f'Correct Answer: {correct_answer}\n')
-            file.wrote('-' * 40 + '\n')
+            file.write('-' * 40 + '\n')
 
             # ask user if he/she wants to add another question
             repeat = input("Do you want to add another question? (yes/no): ").strip().lower()
@@ -36,3 +36,5 @@ def main():
                 break
 
 # exit program
+if __name__ == '__main__':
+    main()
