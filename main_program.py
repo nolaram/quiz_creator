@@ -1,4 +1,7 @@
 # import all libraries needed for the program
+import pygame
+
+pygame.init()
 
 # main loop for asking questions
 def main():
