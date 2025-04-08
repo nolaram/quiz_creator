@@ -3,6 +3,14 @@ import pygame
 
 pygame.init()
 
+# screen setup
+WIDTH, HEIGHT = 800, 600
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption('Quiz Creator')
+
+font = pygame.font.SysFont(None, 32)
+time = pygame.time.Clock()
+
 # main loop for asking questions
 def main():
     file_name = 'quiz_questions.txt'
