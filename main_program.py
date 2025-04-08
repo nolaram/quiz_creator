@@ -29,9 +29,14 @@ for i, label in enumerate(labels):
     rect = pygame.Rect(50, 50 + i * 60, 700, 40)
     input_boxes.append(rect)
 
+color_inactive = pygame.Color('lightskyblue3')
+color_active = pygame.Color('dodgerblue2')
+active_box = current_label
+
+file_name = 'quiz_questions.txt'
+
 # main loop for asking questions
 def main():
-    file_name = 'quiz_questions.txt'
 
     with open(file_name, 'a') as file:
         # options
