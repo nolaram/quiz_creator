@@ -66,8 +66,13 @@ while running:
                 main(inputs)
                 inputs = [""] * len(inputs)
                 active_box = 0
+            else:
+                print("Print all fields properly")
+        
+        elif event.key == pygame.K_BACKSPACE:
+            inputs[active_box] = inputs[active_box][:-1]
         else:
-            print("Print all fields properly")
+            input[active_box] += event.unicode
 
 pygame.quit()
 sys.exit()
