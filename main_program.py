@@ -5,6 +5,7 @@ def main():
     file_name = 'quiz_questions.txt'
 
     with open(file_name, 'a') as file:
+        # options
         while True:
             print('-- Add a new Question --')
             question = input("Enter a question: ")
@@ -12,6 +13,8 @@ def main():
             option_b = input("Enter option B: ")
             option_c = input("Enter option C: ")
             option_d = input("Enter option D: ")
-            
-    # correct answer
+
+            # correct answer
+            correct_answer = input("Enter the correct answer (a/b/c/d): ").lower()
+
 # exit program
