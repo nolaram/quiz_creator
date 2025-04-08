@@ -35,40 +35,19 @@ active_box = current_label
 
 file_name = 'quiz_questions.txt'
 
-# main loop for asking questions
-def main():
-
+# convert input into file
+def main(data):
     with open(file_name, 'a') as file:
         # options
         while True:
-            print('-- Add a new Question --')
-            question = input("Enter a question: ")
-            option_a = input("Enter option A: ")
-            option_b = input("Enter option B: ")
-            option_c = input("Enter option C: ")
-            option_d = input("Enter option D: ")
-
-            # correct answer
-            correct_answer = input("Enter the correct answer (a/b/c/d): ").lower()
-            while correct_answer not in ['a', 'b', 'c', 'd']:
-                print("Invalid input! The answer must be (a/b/c/d)")
-                correct_answer = input("Enter the correct answer (a/b/c/d): ").lower()
-
             # write the input in the file
-            file.write(f'Question: {question}\n')
-            file.write(f'a) {option_a}\n')
-            file.write(f'b) {option_b}\n')
-            file.write(f'c) {option_c}\n')
-            file.write(f'd) {option_d}\n')
-            file.write(f'Correct Answer: {correct_answer}\n')
+            file.write(f'Question: {data[0]}\n')
+            file.write(f'a) {data[1]}\n')
+            file.write(f'b) {data[2]}\n')
+            file.write(f'c) {data[3]}\n')
+            file.write(f'd) {data[4]}\n')
+            file.write(f'Correct Answer: {data[5].lower()}\n')
             file.write('-' * 40 + '\n')
-
-            # ask user if he/she wants to add another question
-            repeat = input("Do you want to add another question? (yes/no): ").strip().lower()
-            if repeat != 'yes':
-                print("Thank you!")
-                # exit program
-                break
 
 pygame.quit()
 sys.exit()
