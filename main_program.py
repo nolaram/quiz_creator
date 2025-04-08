@@ -1,7 +1,4 @@
 # import all libraries needed for the program
-from colorama import Fore, Style, init
-
-init(autoreset=True)
 
 # main loop for asking questions
 def main():
