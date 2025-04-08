@@ -12,6 +12,16 @@ pygame.display.set_caption('Quiz Creator')
 font = pygame.font.SysFont(None, 32)
 time = pygame.time.Clock()
 
+# inputs and labels
+labels = [
+    "Questions",
+    "Option A",
+    "Option B",
+    "Option C",
+    "Option D",
+    "Correct Answer (a/b/c/d)"
+]
+
 # main loop for asking questions
 def main():
     file_name = 'quiz_questions.txt'
