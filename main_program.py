@@ -29,4 +29,10 @@ def main():
             file.write(f'Correct Answer: {correct_answer}\n')
             file.wrote('-' * 40 + '\n')
 
+            # ask user if he/she wants to add another question
+            repeat = input("Do you want to add another question? (yes/no): ").strip().lower()
+            if repeat != 'yes':
+                print("Thank you!")
+                break
+
 # exit program
