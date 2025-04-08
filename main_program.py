@@ -55,34 +55,34 @@ while running:
     screen.fill((30, 30, 30))
 
     for event in pygame.event.get():
-        if event.type == pygame.QUIT():
-            running == False
+        if event.type == pygame.QUIT:
+            running = False
 
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_TAB:
                 active_box = (active_box + 1) % len(labels)
-        elif event.key == pygame.K_RETURN:
-            if all(inputs) and inputs[5].lower() in ["a", "b", "c", "d"]:
-                main(inputs)
-                inputs = [""] * len(inputs)
-                active_box = 0
-            else:
-                print("Print all fields properly")
+            elif event.key == pygame.K_RETURN:
+                if all(inputs) and inputs[5].lower() in ["a", "b", "c", "d"]:
+                    main(inputs)
+                    inputs = [""] * len(inputs)
+                    active_box = 0
+                else:
+                    print("Print all fields properly")
         
-        elif event.key == pygame.K_BACKSPACE:
-            inputs[active_box] = inputs[active_box][:-1]
-        else:
-            input[active_box] += event.unicode
+            elif event.key == pygame.K_BACKSPACE:
+                inputs[active_box] = inputs[active_box][:-1]
+            else:
+                inputs[active_box] += event.unicode
 
     # add input fields and labels
     for input, box in enumerate(input_boxes):
         color = color_active if input == active_box else color_inactive
         pygame.draw.rect(screen, color, box, 2)
-        text_surface = font.render(f"{labels[input]}: {inputs[input]}", True, pygame.color("white"))
+        text_surface = font.render(f"{labels[input]}: {inputs[input]}", True, pygame.Color("white"))
         screen.blit(text_surface, (box.x + 5, box.y + 5))
 
     pygame.display.flip()
-    clock.tick(30)
+    time.tick(30)
 
 pygame.quit()
 sys.exit()
