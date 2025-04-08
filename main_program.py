@@ -24,6 +24,11 @@ labels = [
 inputs = [""] * len(labels)
 current_label = 0
 
+input_boxes = []
+for i, label in enumerate(labels):
+    rect = pygame.Rect(50, 50 + i * 60, 700, 40)
+    input_boxes.append(rect)
+
 # main loop for asking questions
 def main():
     file_name = 'quiz_questions.txt'
