@@ -49,5 +49,10 @@ def main(data):
             file.write(f'Correct Answer: {data[5].lower()}\n')
             file.write('-' * 40 + '\n')
 
+# main loop
+running = True
+while running:
+    screen.fill((30, 30, 30))
+
 pygame.quit()
 sys.exit()
