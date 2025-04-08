@@ -54,5 +54,9 @@ running = True
 while running:
     screen.fill((30, 30, 30))
 
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT():
+            running == False
+
 pygame.quit()
 sys.exit()
