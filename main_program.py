@@ -16,5 +16,8 @@ def main():
 
             # correct answer
             correct_answer = input("Enter the correct answer (a/b/c/d): ").lower()
+            while correct_answer not in ['a', 'b', 'c', 'd']:
+                print("Invalid input! The answer must be (a/b/c/d)")
+                correct_answer = input("Enter the correct answer (a/b/c/d): ")
 
 # exit program
