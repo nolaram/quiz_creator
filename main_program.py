@@ -16,7 +16,10 @@ COLOR_ACTIVE = pygame.Color("#00bfff")
 COLOR_INACTIVE = pygame.Color("#3a3f55")
 COLOR_CONFIRM = pygame.Color("lightgreen")
 
-font = pygame.font.SysFont(None, 32)
+font = pygame.font.SysFont("comic sans ms", 28)
+confirm_font = pygame.font.SysFont("comic sans ms", 32)
+title_font = pygame.font.SysFont("arial", 50, bold=True)
+
 time = pygame.time.Clock()
 
 # inputs and labels
@@ -58,7 +61,7 @@ state = "input"
 # main loop
 running = True
 while running:
-    screen.fill((30, 30, 30))
+    screen.fill((COLOR_BACKGROUND))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -92,20 +95,20 @@ while running:
     # add input fields and labels
     for input, box in enumerate(input_boxes):
         color = COLOR_ACTIVE if input == active_box else COLOR_INACTIVE
-        pygame.draw.rect(screen, color, box, 2)
-        text_surface = font.render(f"{labels[input]}: {inputs[input]}", True, pygame.Color("white"))
+        pygame.draw.rect(screen, color, box, 0)
+        pygame.draw.rect(screen, pygame.Color("white"), box, 2)
+
+        text_surface = font.render(f"{labels[input]}: {inputs[input]}", True, COLOR_TEXT)
         text_rect = text_surface.get_rect()
         screen.blit(text_surface, (box.x + 5, box.y + (box.height - text_rect.height) // 2))
 
     # confirmation program to ask for another question
     if state == "confirm":
-        confirm_font = pygame.font.SysFont(None, 36)
         confirm_text = confirm_font.render("Add another question? (Y/N)", True, COLOR_CONFIRM)
         confirm_rect = confirm_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 140))
         screen.blit(confirm_text, confirm_rect)
 
     # add title at the bottom
-    title_font = pygame.font.SysFont(None, 58)
     title_text = title_font.render("Quiz Creator", True, COLOR_TEXT)
     title_rect = title_text.get_rect(center=(WIDTH // 2, HEIGHT - 110))
     screen.blit(title_text, title_rect)
