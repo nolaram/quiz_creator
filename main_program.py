@@ -93,6 +93,13 @@ while running:
         text_rect = text_surface.get_rect()
         screen.blit(text_surface, (box.x + 5, box.y + (box.height - text_rect.height) // 2))
 
+    # confirmation program to ask for another question
+    if state == "confirm":
+        confirm_font = pygame.font.SysFont(None, 36)
+        confirm_text = confirm_font.render("Add another question? (Y/N)", True, pygame.Color("lightgreen"))
+        confirm_rect = confirm_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 180))
+        screen.blit(confirm_text, confirm_rect)
+
     # add title at the bottom
     title_font = pygame.font.SysFont(None, 58)
     title_text = title_font.render("Quiz Creator", True, pygame.Color("white"))
