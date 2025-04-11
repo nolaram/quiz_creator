@@ -49,6 +49,8 @@ def main(data):
             file.write(f'Correct Answer: {data[5].lower()}\n')
             file.write('-' * 40 + '\n')
 
+state = "input"
+
 # main loop
 running = True
 while running:
@@ -59,20 +61,29 @@ while running:
             running = False
 
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_TAB:
-                active_box = (active_box + 1) % len(labels)
-            elif event.key == pygame.K_RETURN:
-                if all(inputs) and inputs[5].lower() in ["a", "b", "c", "d"]:
-                    main(inputs)
-                    inputs = [""] * len(inputs)
-                    active_box = 0
-                else:
-                    print("Print all fields properly")
+            if state == "input":
+                if event.key == pygame.K_TAB:
+                    active_box = (active_box + 1) % len(labels)
+                elif event.key == pygame.K_RETURN:
+                    if all(inputs) and inputs[5].lower() in ["a", "b", "c", "d"]:
+                        main(inputs)
+                        inputs = [""] * len(inputs)
+                        state = 'confirm'
+                    else:
+                        print("Print all fields properly")
         
-            elif event.key == pygame.K_BACKSPACE:
-                inputs[active_box] = inputs[active_box][:-1]
-            else:
-                inputs[active_box] += event.unicode
+                elif event.key == pygame.K_BACKSPACE:
+                    inputs[active_box] = inputs[active_box][:-1]
+                else:
+                    inputs[active_box] += event.unicode
+
+            elif state == 'confirm':
+                if event.key == pygame.K_y:
+                    inputs = [""] * len(labels)
+                    active_box = 0
+                    state = "input"
+                elif event.key == pygame.K_n:
+                    running = False
 
     # add input fields and labels
     for input, box in enumerate(input_boxes):
