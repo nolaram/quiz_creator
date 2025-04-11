@@ -90,7 +90,8 @@ while running:
         color = color_active if input == active_box else color_inactive
         pygame.draw.rect(screen, color, box, 2)
         text_surface = font.render(f"{labels[input]}: {inputs[input]}", True, pygame.Color("white"))
-        screen.blit(text_surface, (box.x + 5, box.y + 5))
+        text_rect = text_surface.get_rect()
+        screen.blit(text_surface, (box.x + 5, box.y + (box.height - text_rect.height) // 2))
 
     # add title at the bottom
     title_font = pygame.font.SysFont(None, 58)
