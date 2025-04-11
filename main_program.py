@@ -9,6 +9,13 @@ WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Quiz Creator')
 
+# add colors
+COLOR_BACKGROUND = pygame.Color("#1e1e1e")
+COLOR_TEXT = pygame.Color("#ffffff")
+COLOR_ACTIVE = pygame.Color("#00bfff")
+COLOR_INACTIVE = pygame.Color("#3a3f55")
+COLOR_CONFIRM = pygame.Color("lightgreen")
+
 font = pygame.font.SysFont(None, 32)
 time = pygame.time.Clock()
 
@@ -29,8 +36,6 @@ for input, label in enumerate(labels):
     rect = pygame.Rect(50, 50 + input * 60, 700, 40)
     input_boxes.append(rect)
 
-color_inactive = pygame.Color('lightskyblue3')
-color_active = pygame.Color('dodgerblue2')
 active_box = current_label
 
 file_name = 'quiz_questions.txt'
@@ -86,7 +91,7 @@ while running:
 
     # add input fields and labels
     for input, box in enumerate(input_boxes):
-        color = color_active if input == active_box else color_inactive
+        color = COLOR_ACTIVE if input == active_box else COLOR_INACTIVE
         pygame.draw.rect(screen, color, box, 2)
         text_surface = font.render(f"{labels[input]}: {inputs[input]}", True, pygame.Color("white"))
         text_rect = text_surface.get_rect()
@@ -95,13 +100,13 @@ while running:
     # confirmation program to ask for another question
     if state == "confirm":
         confirm_font = pygame.font.SysFont(None, 36)
-        confirm_text = confirm_font.render("Add another question? (Y/N)", True, pygame.Color("lightgreen"))
+        confirm_text = confirm_font.render("Add another question? (Y/N)", True, COLOR_CONFIRM)
         confirm_rect = confirm_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 140))
         screen.blit(confirm_text, confirm_rect)
 
     # add title at the bottom
     title_font = pygame.font.SysFont(None, 58)
-    title_text = title_font.render("Quiz Creator", True, pygame.Color("white"))
+    title_text = title_font.render("Quiz Creator", True, COLOR_TEXT)
     title_rect = title_text.get_rect(center=(WIDTH // 2, HEIGHT - 110))
     screen.blit(title_text, title_rect)
 
