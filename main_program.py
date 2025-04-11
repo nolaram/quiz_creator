@@ -81,6 +81,13 @@ while running:
         text_surface = font.render(f"{labels[input]}: {inputs[input]}", True, pygame.Color("white"))
         screen.blit(text_surface, (box.x + 5, box.y + 5))
 
+    # add title at the bottom
+    title_font = pygame.font.SysFont(None, 58)
+    title_text = title_font.render("Quiz Creator", True, pygame.Color("white"))
+    title_rect = title_text.get_rect(center=(WIDTH // 2, HEIGHT - 110))
+    screen.blit(title_text, title_rect)
+
+
     pygame.display.flip()
     time.tick(30)
 
