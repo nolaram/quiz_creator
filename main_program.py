@@ -101,9 +101,11 @@ while running:
         full_text = f"{labels[input]}: {inputs[input]}"
         temp_font = font
         max_width = input_boxes[input].width - 10
+        font_size = temp_font.get_height()
         
         while temp_font.size(full_text)[0] > max_width and temp_font.get_height() > 16:
-            temp_font = pygame.font.SysFont("comic sans ms", temp_font.get_height() - 1)
+            font_size -= 1
+            temp_font = pygame.font.SysFont("comic sans ms", font_size)
 
         text_surface = temp_font.render(full_text, True, COLOR_TEXT)
         text_rect = text_surface.get_rect()
