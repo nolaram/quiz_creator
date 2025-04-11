@@ -98,12 +98,20 @@ while running:
         pygame.draw.rect(screen, color, box, 0)
         pygame.draw.rect(screen, pygame.Color("white"), box, 2)
 
-        text_surface = font.render(f"{labels[input]}: {inputs[input]}", True, COLOR_TEXT)
+        full_text = f"{labels[input]}: {inputs[input]}"
+        temp_font = font
+        max_width = input_boxes[input].width - 10
+        
+        while temp_font.size(full_text)[0] > max_width and temp_font.get_height() > 16:
+            temp_font = pygame.font.SysFont("comic sans ms", temp_font.get_height() - 1)
+
+        text_surface = temp_font.render(full_text, True, COLOR_TEXT)
         text_rect = text_surface.get_rect()
         screen.blit(text_surface, (box.x + 5, box.y + (box.height - text_rect.height) // 2))
 
     # confirmation program to ask for another question
     if state == "confirm":
+        pygame.draw.rect(screen, COLOR_INACTIVE, (200, HEIGHT // 2 + 120, 400, 60), border_radius=10)
         confirm_text = confirm_font.render("Add another question? (Y/N)", True, COLOR_CONFIRM)
         confirm_rect = confirm_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 140))
         screen.blit(confirm_text, confirm_rect)
