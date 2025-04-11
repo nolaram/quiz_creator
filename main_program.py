@@ -38,8 +38,7 @@ file_name = 'quiz_questions.txt'
 # convert input into file
 def main(data):
     with open(file_name, 'a') as file:
-        # options
-        while True:
+            # options
             # write the input in the file
             file.write(f'Question: {data[0]}\n')
             file.write(f'a) {data[1]}\n')
@@ -97,7 +96,7 @@ while running:
     if state == "confirm":
         confirm_font = pygame.font.SysFont(None, 36)
         confirm_text = confirm_font.render("Add another question? (Y/N)", True, pygame.Color("lightgreen"))
-        confirm_rect = confirm_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 180))
+        confirm_rect = confirm_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 140))
         screen.blit(confirm_text, confirm_rect)
 
     # add title at the bottom
