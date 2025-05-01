@@ -7,7 +7,9 @@ def read_and_display_quiz_file(quiz_file_path):
             file_contents = quiz_file.read()
         # display the file content of the file
         print(file_contents)
-# if file is not found
-    # print the file is not found
+    # if file is not found
+    except FileNotFoundError: 
+        # print the file is not found
+        print(f"Error: The file '{quiz_file_path}' does not exist.")
 # if there are other errors
     # print the error
