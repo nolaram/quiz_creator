@@ -30,6 +30,10 @@ def load_questions_from_file(quiz_file_path):
                 elif stripped_line.startswith("d) "):
                     current_question_data["option_d"] = stripped_line[len("d) "):]
 
+                elif stripped_line.startswith("Correct Answer: "):
+                    correct_answer = stripped_line[len("Correct Answer: "):]
+                    current_question_data["correct_answer"] = correct_answer
+
     # if file is not found
     except FileNotFoundError: 
         # print the file is not found
