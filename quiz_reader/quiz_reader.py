@@ -15,3 +15,7 @@ def read_and_display_quiz_file(quiz_file_path):
     except Exception as unexpected_error:
         # print the error
         print(f"Unexpected error: {unexpected_error}")
+
+if __name__ == "__main__":
+    quiz_file_name = 'quiz_questions.txt'
+    read_and_display_quiz_file(quiz_file_name)
