@@ -1,8 +1,8 @@
 # import all libraries needed for the program
-import pygame
 import sys
 import os
 import csv
+import pygame
 
 pygame.init()
 
