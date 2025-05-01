@@ -37,6 +37,9 @@ def load_questions_from_file(quiz_file_path):
                 elif stripped_line == '-' * 40:
                     continue
 
+            if current_question_data:
+                question_list.append(current_question_data)
+
     # if file is not found
     except FileNotFoundError: 
         # print the file is not found
