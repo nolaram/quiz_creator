@@ -17,7 +17,19 @@ def load_questions_from_file(quiz_file_path):
 
                     question_text = stripped_line[len("Question: "):]
                     current_question_data["question_text"] = question_text
-                    
+                
+                elif stripped_line.startswith("a) "):
+                    current_question_data["option_a"] = stripped_line[len("a) "):]
+                
+                elif stripped_line.startswith("b) "):
+                    current_question_data["option_b"] = stripped_line[len("b) "):]
+
+                elif stripped_line.startswith("c) "):
+                    current_question_data["option_c"] = stripped_line[len("c) "):]
+
+                elif stripped_line.startswith("d) "):
+                    current_question_data["option_d"] = stripped_line[len("d) "):]
+
     # if file is not found
     except FileNotFoundError: 
         # print the file is not found
