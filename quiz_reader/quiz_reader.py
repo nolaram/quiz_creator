@@ -54,3 +54,12 @@ def load_questions_from_file(quiz_file_path):
 if __name__ == "__main__":
     quiz_file_name = 'quiz_questions.txt'
     loaded_questions = load_questions_from_file(quiz_file_name)
+
+    print("=== Loaded Questions ===")
+    for index, question_data in enumerate(loaded_questions, start=1):
+        print(f"\nQuestion {index}: {question_data['question_text']}")
+        print(f"  a) {question_data['option_a']}")
+        print(f"  b) {question_data['option_b']}")
+        print(f"  c) {question_data['option_c']}")
+        print(f"  d) {question_data['option_d']}")
+        print(f"Correct Answer: {question_data['correct_answer']}")
