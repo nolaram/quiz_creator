@@ -11,5 +11,7 @@ def read_and_display_quiz_file(quiz_file_path):
     except FileNotFoundError: 
         # print the file is not found
         print(f"Error: The file '{quiz_file_path}' does not exist.")
-# if there are other errors
-    # print the error
+    # if there are other errors
+    except Exception as unexpected_error:
+        # print the error
+        print(f"Unexpected error: {unexpected_error}")
