@@ -7,9 +7,9 @@ def load_questions_from_file(quiz_file_path):
         with open(quiz_file_path, 'r', encoding='utf-8') as quiz_file:
             current_question_data = {}
             # read the entire content of the file
-            file_contents = quiz_file.read()
-        # display the file content of the file
-        print(file_contents)
+            for line in quiz_file:
+                stripped_line = line.strip()
+                
     # if file is not found
     except FileNotFoundError: 
         # print the file is not found
