@@ -34,6 +34,9 @@ def load_questions_from_file(quiz_file_path):
                     correct_answer = stripped_line[len("Correct Answer: "):]
                     current_question_data["correct_answer"] = correct_answer
 
+                elif stripped_line == '-' * 40:
+                    continue
+
     # if file is not found
     except FileNotFoundError: 
         # print the file is not found
