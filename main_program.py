@@ -52,16 +52,18 @@ if not os.path.exists(csv_filename):
 
 # convert input into file
 def main(data):
-    with open(file_name, 'a') as file:
+    with open(csv_filename, 'a', newline='', encoding='utf-8') as csvfile:
+            writer = csv.writer(csvfile)
             # options
             # write the input in the file
-            file.write(f'Question: {data[0]}\n')
-            file.write(f'a) {data[1]}\n')
-            file.write(f'b) {data[2]}\n')
-            file.write(f'c) {data[3]}\n')
-            file.write(f'd) {data[4]}\n')
-            file.write(f'Correct Answer: {data[5].lower()}\n')
-            file.write('-' * 40 + '\n')
+            writer.writerow([
+            data[0],  
+            data[1],  
+            data[2],  
+            data[3],  
+            data[4],  
+            data[5].upper()  
+        ])
 
 state = "input"
 
