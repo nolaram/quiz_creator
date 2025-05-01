@@ -1,6 +1,8 @@
 # import all libraries needed for the program
 import pygame
 import sys
+import os
+import csv
 
 pygame.init()
 
@@ -41,7 +43,12 @@ for input, label in enumerate(labels):
 
 active_box = current_label
 
-file_name = 'quiz_questions.txt'
+csv_filename = 'quiz_output.csv' 
+
+if not os.path.exists(csv_filename):
+    with open(csv_filename, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['question', 'option_a', 'option_b', 'option_c', 'option_d', 'correct_answer'])
 
 # convert input into file
 def main(data):
