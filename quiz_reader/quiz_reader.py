@@ -9,7 +9,15 @@ def load_questions_from_file(quiz_file_path):
             # read the entire content of the file
             for line in quiz_file:
                 stripped_line = line.strip()
-                
+
+                if stripped_line.startswith("Question: "):
+                    if current_question_data:
+                        question_list.append(current_question_data)
+                        current_question_data = {}
+
+                    question_text = stripped_line[len("Question: "):]
+                    current_question_data["question_text"] = question_text
+                    
     # if file is not found
     except FileNotFoundError: 
         # print the file is not found
