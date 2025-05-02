@@ -54,19 +54,6 @@ def load_questions_from_file(quiz_file_path):
 
     return question_list
 
-if __name__ == "__main__":
-    quiz_file_name = 'quiz_questions.txt'
-    loaded_questions = load_questions_from_file(quiz_file_name)
-
-    print("=== Loaded Questions ===")
-    for index, question_data in enumerate(loaded_questions, start=1):
-        print(f"\nQuestion {index}: {question_data['question_text']}")
-        print(f"  a) {question_data['option_a']}")
-        print(f"  b) {question_data['option_b']}")
-        print(f"  c) {question_data['option_c']}")
-        print(f"  d) {question_data['option_d']}")
-        print(f"Correct Answer: {question_data['correct_answer']}")
-
 # for each question
 def run_quiz(question_list):
     user_score = 0
@@ -97,8 +84,9 @@ def run_quiz(question_list):
                 user_answer = 'timeout' 
                 break
 
-            print(f"Time remaining: {remaining_time} seconds", end="\r")
+            print(f"Time remaining: {remaining_time} seconds")
             user_answer = input("Your answer (a/b/c/d): ").lower().strip()
+
             if user_answer not in valid_answers and user_answer != 'timeout':
                 print("Please enter a valid choice: a, b, c, or d")
 
@@ -139,6 +127,10 @@ def ask_user_to_retry():
         else:
             print("Invalid input. Please enter Y or N.")
 
-# continue
-while True:
-    run_quiz(loaded_questions)
+if __name__ == "__main__":
+    quiz_file_name = 'quiz_questions.txt'
+    loaded_questions = load_questions_from_file(quiz_file_name)
+    
+    # continue
+    while True:
+        run_quiz(loaded_questions)
