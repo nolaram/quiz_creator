@@ -110,6 +110,8 @@ if __name__ == "__main__":
         while True:
             user_choice = input("Do you want to take the quiz again? (Y/N): ").strip().lower()
             # if yes
+            if user_choice == 'y':
                 # go back to asking questions
+                return True
             # if no
                 # exit the program
