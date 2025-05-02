@@ -114,4 +114,6 @@ if __name__ == "__main__":
                 # go back to asking questions
                 return True
             # if no
+            elif user_choice == 'n':
                 # exit the program
+                return False
