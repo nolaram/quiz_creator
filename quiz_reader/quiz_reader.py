@@ -106,7 +106,10 @@ if __name__ == "__main__":
     run_quiz(loaded_questions)
 
     # ask the user again
-    # if yes
-        # go back to asking questions
-    # if no
-        # exit the program
+    def ask_user_to_retry():
+        while True:
+            user_choice = input("Do you want to take the quiz again? (Y/N): ").strip().lower()
+            # if yes
+                # go back to asking questions
+            # if no
+                # exit the program
