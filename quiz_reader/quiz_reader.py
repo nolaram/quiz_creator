@@ -87,7 +87,8 @@ if __name__ == "__main__":
                 if user_answer not in valid_answers:
                     print("Please enter a valid choice: a, b, c, or d")
 
-        # check if it matches the correct answer
+            # check if it matches the correct answer
+            correct_answer = question_data["correct_answer"].lower()
             # if correct
                 # print correct
             # if wrong
