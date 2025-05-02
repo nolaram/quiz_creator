@@ -90,6 +90,11 @@ def run_quiz(question_list):
         while user_answer not in valid_answers:
             elapsed_time = time.time() - start_time
             remaining_time = time_limit - int(elapsed_time)
+            
+            if remaining_time <= 0:
+                print("\nTime's up! Moving to the next question.")
+                user_answer = 'timeout' 
+                break
 
         while user_answer not in valid_answers:
             user_answer = input("Your answer (a/b/c/d): ").lower().strip()
