@@ -130,6 +130,10 @@ def ask_user_to_retry():
 if __name__ == "__main__":
     quiz_file_name = 'quiz_questions.txt'
     loaded_questions = load_questions_from_file(quiz_file_name)
+
+    if not loaded_questions:
+        print("No questions were loaded. Please check your quiz file.")
+        sys.exit()
     
     # continue
     while True:
