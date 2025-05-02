@@ -71,6 +71,7 @@ if __name__ == "__main__":
 def run_quiz(question_list):
     user_score = 0
     total_questions = len(question_list)
+    time_limit = 30
 
     # display question and 4 options
     for question_number, question_data in enumerate(question_list, start=1):
@@ -103,18 +104,18 @@ def run_quiz(question_list):
 
         if user_answer == 'timeout':
             print(f"Sorry, you ran out of time. The correct answer was '{question_data['correct_answer']}'.")
-            
-        # check if it matches the correct answer
-        correct_answer = question_data["correct_answer"].lower()
-        # if correct
-        if user_answer == correct_answer:
-            # print correct
-            print("Correct!")
-            user_score += 1
-        # if wrong
         else:
-            # print wrong
-            print(f"Wrong! The correct answer was '{correct_answer}'.")
+            # check if it matches the correct answer
+            correct_answer = question_data["correct_answer"].lower()
+            # if correct
+            if user_answer == correct_answer:
+                # print correct
+                print("Correct!")
+                user_score += 1
+            # if wrong
+            else:
+                # print wrong
+                print(f"Wrong! The correct answer was '{correct_answer}'.")
 
     print("\n=== Quiz Complete ===")
     print(f"Your Score: {user_score} out of {total_questions}")
