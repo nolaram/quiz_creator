@@ -63,3 +63,14 @@ if __name__ == "__main__":
         print(f"  c) {question_data['option_c']}")
         print(f"  d) {question_data['option_d']}")
         print(f"Correct Answer: {question_data['correct_answer']}")
+
+# for each question
+    # display question and 4 options
+    # enter the anwer
+    # except ValueError
+    # check if it matches the correct answer
+        # if correct
+            # print correct
+        # if wrong
+            # print wrong
+    # continue
