@@ -1,4 +1,5 @@
 import sys
+import time
 
 # read the file
 def load_questions_from_file(quiz_file_path):
@@ -79,6 +80,8 @@ def run_quiz(question_list):
         print(f"  c) {question_data['option_c']}")
         print(f"  d) {question_data['option_d']}")
 
+        # start timer
+        start_time = time.time()
         # enter the anwer
         user_answer = ""
         # except ValueError
