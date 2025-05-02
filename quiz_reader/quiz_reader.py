@@ -90,7 +90,10 @@ if __name__ == "__main__":
             # check if it matches the correct answer
             correct_answer = question_data["correct_answer"].lower()
             # if correct
+            if user_answer == correct_answer:
                 # print correct
+                print("Correct!")
+                user_score += 1
             # if wrong
                 # print wrong
         # continue
