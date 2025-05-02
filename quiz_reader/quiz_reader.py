@@ -117,3 +117,5 @@ if __name__ == "__main__":
             elif user_choice == 'n':
                 # exit the program
                 return False
+            else:
+                print("Invalid input. Please enter Y or N.")
