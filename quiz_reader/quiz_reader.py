@@ -95,5 +95,7 @@ if __name__ == "__main__":
                 print("Correct!")
                 user_score += 1
             # if wrong
+            else:
                 # print wrong
+                print(f"Wrong! The correct answer was '{correct_answer}'.")
         # continue
