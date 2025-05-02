@@ -98,4 +98,9 @@ if __name__ == "__main__":
             else:
                 # print wrong
                 print(f"Wrong! The correct answer was '{correct_answer}'.")
-        # continue
+
+        print("\n=== Quiz Complete ===")
+        print(f"Your Score: {user_score} out of {total_questions}")
+        
+    # continue
+    run_quiz(loaded_questions)
