@@ -96,11 +96,14 @@ def run_quiz(question_list):
                 user_answer = 'timeout' 
                 break
 
-        while user_answer not in valid_answers:
+            print(f"Time remaining: {remaining_time} seconds", end="\r")
             user_answer = input("Your answer (a/b/c/d): ").lower().strip()
-            if user_answer not in valid_answers:
+            if user_answer not in valid_answers and user_answer != 'timeout':
                 print("Please enter a valid choice: a, b, c, or d")
 
+        if user_answer == 'timeout':
+            print(f"Sorry, you ran out of time. The correct answer was '{question_data['correct_answer']}'.")
+            
         # check if it matches the correct answer
         correct_answer = question_data["correct_answer"].lower()
         # if correct
