@@ -64,13 +64,17 @@ if __name__ == "__main__":
         print(f"  d) {question_data['option_d']}")
         print(f"Correct Answer: {question_data['correct_answer']}")
 
-# for each question
-    # display question and 4 options
-    # enter the anwer
-    # except ValueError
-    # check if it matches the correct answer
-        # if correct
-            # print correct
-        # if wrong
-            # print wrong
-    # continue
+    # for each question
+    def run_quiz(question_list):
+        user_score = 0
+        total_questions = len(question_list)
+
+        # display question and 4 options
+        # enter the anwer
+        # except ValueError
+        # check if it matches the correct answer
+            # if correct
+                # print correct
+            # if wrong
+                # print wrong
+        # continue
