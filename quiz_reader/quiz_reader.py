@@ -78,10 +78,6 @@ def run_quiz(question_list):
         print(f"  b) {question_data['option_b']}")
         print(f"  c) {question_data['option_c']}")
         print(f"  d) {question_data['option_d']}")
-        
-    if not ask_user_to_retry():
-        print("Thank you for playing!")
-        sys.exit()
 
         # enter the anwer
         user_answer = ""
@@ -107,9 +103,10 @@ def run_quiz(question_list):
 
     print("\n=== Quiz Complete ===")
     print(f"Your Score: {user_score} out of {total_questions}")
-        
-# continue
-run_quiz(loaded_questions)
+
+    if not ask_user_to_retry():
+        print("Thank you for playing!")
+        sys.exit()
 
 # ask the user again
 def ask_user_to_retry():
@@ -125,3 +122,7 @@ def ask_user_to_retry():
             return False
         else:
             print("Invalid input. Please enter Y or N.")
+
+# continue
+while True:
+    run_quiz(loaded_questions)
