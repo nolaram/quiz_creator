@@ -70,8 +70,23 @@ if __name__ == "__main__":
         total_questions = len(question_list)
 
         # display question and 4 options
-        # enter the anwer
-        # except ValueError
+        for question_number, question_data in enumerate(question_list, start=1):
+            print(f"\nQuestion {question_number}: {question_data['question_text']}")
+            print(f"  a) {question_data['option_a']}")
+            print(f"  b) {question_data['option_b']}")
+            print(f"  c) {question_data['option_c']}")
+            print(f"  d) {question_data['option_d']}")
+
+            # enter the anwer
+            user_answer = ""
+            # except ValueError
+            valid_answers = ["a", "b", "c", "d"]
+
+            while user_answer not in valid_answers:
+                user_answer = input("Your answer (a/b/c/d): ").lower().strip()
+                if user_answer not in valid_answers:
+                    print("Please enter a valid choice: a, b, c, or d")
+
         # check if it matches the correct answer
             # if correct
                 # print correct
