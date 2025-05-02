@@ -1,3 +1,5 @@
+import sys
+
 # read the file
 def load_questions_from_file(quiz_file_path):
     question_list = []
@@ -64,58 +66,62 @@ if __name__ == "__main__":
         print(f"  d) {question_data['option_d']}")
         print(f"Correct Answer: {question_data['correct_answer']}")
 
-    # for each question
-    def run_quiz(question_list):
-        user_score = 0
-        total_questions = len(question_list)
+# for each question
+def run_quiz(question_list):
+    user_score = 0
+    total_questions = len(question_list)
 
-        # display question and 4 options
-        for question_number, question_data in enumerate(question_list, start=1):
-            print(f"\nQuestion {question_number}: {question_data['question_text']}")
-            print(f"  a) {question_data['option_a']}")
-            print(f"  b) {question_data['option_b']}")
-            print(f"  c) {question_data['option_c']}")
-            print(f"  d) {question_data['option_d']}")
-
-            # enter the anwer
-            user_answer = ""
-            # except ValueError
-            valid_answers = ["a", "b", "c", "d"]
-
-            while user_answer not in valid_answers:
-                user_answer = input("Your answer (a/b/c/d): ").lower().strip()
-                if user_answer not in valid_answers:
-                    print("Please enter a valid choice: a, b, c, or d")
-
-            # check if it matches the correct answer
-            correct_answer = question_data["correct_answer"].lower()
-            # if correct
-            if user_answer == correct_answer:
-                # print correct
-                print("Correct!")
-                user_score += 1
-            # if wrong
-            else:
-                # print wrong
-                print(f"Wrong! The correct answer was '{correct_answer}'.")
-
-        print("\n=== Quiz Complete ===")
-        print(f"Your Score: {user_score} out of {total_questions}")
+    # display question and 4 options
+    for question_number, question_data in enumerate(question_list, start=1):
+        print(f"\nQuestion {question_number}: {question_data['question_text']}")
+        print(f"  a) {question_data['option_a']}")
+        print(f"  b) {question_data['option_b']}")
+        print(f"  c) {question_data['option_c']}")
+        print(f"  d) {question_data['option_d']}")
         
-    # continue
-    run_quiz(loaded_questions)
+    if not ask_user_to_retry():
+        print("Thank you for playing!")
+        sys.exit()
 
-    # ask the user again
-    def ask_user_to_retry():
-        while True:
-            user_choice = input("Do you want to take the quiz again? (Y/N): ").strip().lower()
-            # if yes
-            if user_choice == 'y':
-                # go back to asking questions
-                return True
-            # if no
-            elif user_choice == 'n':
-                # exit the program
-                return False
-            else:
-                print("Invalid input. Please enter Y or N.")
+        # enter the anwer
+        user_answer = ""
+        # except ValueError
+        valid_answers = ["a", "b", "c", "d"]
+
+        while user_answer not in valid_answers:
+            user_answer = input("Your answer (a/b/c/d): ").lower().strip()
+            if user_answer not in valid_answers:
+                print("Please enter a valid choice: a, b, c, or d")
+
+        # check if it matches the correct answer
+        correct_answer = question_data["correct_answer"].lower()
+        # if correct
+        if user_answer == correct_answer:
+            # print correct
+            print("Correct!")
+            user_score += 1
+        # if wrong
+        else:
+            # print wrong
+            print(f"Wrong! The correct answer was '{correct_answer}'.")
+
+    print("\n=== Quiz Complete ===")
+    print(f"Your Score: {user_score} out of {total_questions}")
+        
+# continue
+run_quiz(loaded_questions)
+
+# ask the user again
+def ask_user_to_retry():
+    while True:
+        user_choice = input("Do you want to take the quiz again? (Y/N): ").strip().lower()
+        # if yes
+        if user_choice == 'y':
+            # go back to asking questions
+            return True
+        # if no
+        elif user_choice == 'n':
+            # exit the program
+            return False
+        else:
+            print("Invalid input. Please enter Y or N.")
